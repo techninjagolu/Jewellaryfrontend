@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Jewellary-app": {
+    "jewellery": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/jewellary-app",
+            "outputPath": "dist/jewellery",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,9 +23,36 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+                "public/jewellery-1/css/bootstrap.min.css",
+                "public/jewellery-1/css/animate.css",
+                "public/jewellery-1/css/jquery-ui.min.css",
+                "public/jewellery-1/css/meanmenu.min.css",
+                "public/jewellery-1/css/font-awesome.min.css",
+                "public/jewellery-1/css/flaticon.css",
+                "public/jewellery-1/venobox/venobox.css",
+                "public/jewellery-1/lib/css/nivo-slider.css",
+                "public/jewellery-1/lib/css/preview.css",
+                "public/jewellery-1/css/owl.carousel.css",
+                "public/jewellery-1/css/style.css",
+                "public/jewellery-1/css/responsive.css"
             ],
-            "scripts": []
+            "scripts": [
+              "public/jewellery-1/js/vendor/jquery-1.12.0.min.js",
+              "public/jewellery-1/js/vendor/modernizr-2.8.3.min.js",
+              "public/jewellery-1/js/bootstrap.min.js",
+              "public/jewellery-1/js/owl.carousel.min.js",
+              "public/jewellery-1/js/jquery-ui.min.js",
+              "public/jewellery-1/js/jquery.countdown.min.js",
+              "public/jewellery-1/venobox/venobox.min.js",
+              "public/jewellery-1/js/jquery.meanmenu.js",
+              "public/jewellery-1/js/wow.min.js",
+              "public/jewellery-1/js/jquery.scrollUp.min.js",
+              "public/jewellery-1/js/plugins.js",
+              "public/jewellery-1/lib/js/jquery.nivo.slider.js",
+              "public/jewellery-1/lib/home.js",
+              "public/jewellery-1/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -68,10 +91,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Jewellary-app:build:production"
+              "browserTarget": "jewellery:build:production"
             },
             "development": {
-              "browserTarget": "Jewellary-app:build:development"
+              "browserTarget": "jewellery:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +102,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Jewellary-app:build"
+            "browserTarget": "jewellery:build"
           }
         },
         "test": {
@@ -102,5 +125,7 @@
       }
     }
   },
-  "defaultProject": "Jewellary-app"
+  "cli": {
+    "analytics": "9e9263da-3b4f-42ac-82ae-698a61bcd5de"
+  }
 }

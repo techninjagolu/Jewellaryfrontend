@@ -1,0 +1,63 @@
+<div class="login-account-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="account-details">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <form method="post" class="create-account-form" action="#">
+                        <h1 class="heading-title">Create an account</h1>
+                        <p class="form-row">
+                            <label>Email address</label>
+                            <input type="email">
+                        </p>	
+                        <div class="submit">					
+                            <button name="submitcreate" id="submitcreate" type="submit" class="">
+                                <span>
+                                    <i class="fa fa-user left"></i>
+                                    Create an account
+                                </span>
+                            </button>
+                        </div>		
+                    </form>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <form method="post" [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="login-form" action="#">
+                        <h1 class="heading-title">Already registered?</h1>
+                        <p class="form-row">
+                            <label>Email address</label>
+                            <input id="inputEmail" type="email" formControlName="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email address" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                            
+                        </p>
+                        https://therichpost.com/angular-13-user-login-authentication-tutorial-part-1/
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback error">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                         </div>
+                        <p class="form-row">
+                            <label>Password</label>
+                            <input id="inputPassword" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                        </p>
+                        <div *ngIf="submitted && f.password.errors" class="error invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                         </div>
+                        <p class="lost-password form-group"><a rel="nofollow" href="#">Forgot your password?</a></p>
+                        <div class="submit">
+                            <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"><span><i class="fa fa-lock"></i>Sign In</span></button>					
+                            <!-- <button name="submitcreate2" id="submitcreate2" type="submit" class="">
+                                <span><i class="fa fa-lock"></i>Sign In</span>
+                            </button> -->
+                        </div>
+
+                        <div class="or-seperator"><i>or</i></div>
+                        <p class="text-center">Login with your social media account</p>
+                        <div class="text-center social-btn">
+                            <a href="#" class="btn btn-secondary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a>
+                            <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a>
+                            <a href="#" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

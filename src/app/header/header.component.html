@@ -12,7 +12,7 @@
                     <div class="col-md-6">
                         <div class="header-top-menu pull-right">
                             <ul class="nav-menu">
-                                <li><a href="login.php">LOGIN</a></li>
+                                <li><a routerLink="/login">LOGIN</a></li>
                                 <!-- <li><a href="#">LANGLUAGE</a>
                                     <div class="ht-menu-down">
                                         <ul>
@@ -46,34 +46,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-10 col-sm-9 hidden-xs">
-                        <div class="mainmenu text-center">
-                            <nav>
-                                <ul id="nav">
-                                    <li><a href="#">HOME</a></li>
-                                    <li><a href="#" [routerLink]="['./product-list']">SHOP</a></li>
-                                    <li><a href="#">MEN</a></li>
-                                    <li><a href="#">WOMEN</a></li>
-                                    <li><a href="#">COLLECTION</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="#">404 Page</a></li>
-                                            <li><a href="#">About Us</a></li>
-                                            <li><a href="cart.php">Cart Page</a></li>
-                                            <li><a href="#">Check Out</a></li>
-                                            <li><a href="#">Contact</a></li>
-                                            <li><a href="login.php">Login</a></li>
-                                            <li><a href="my-account.php">My Account</a></li>
-                                            <li><a href="#">Shopping Page</a></li>
-                                            <li><a href="details.php">Single Shop Page</a></li>
-                                            <li><a href="#">Wishlist Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">CONTACT</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+                    <app-header-menu></app-header-menu>
                     <div class="col-md-2 col-sm-2 col-xs-6">
                         <div class="header-cart pull-right">
                             <ul>

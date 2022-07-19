@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,11 @@ import { HeaderUpperSectionComponent } from './header-upper-section/header-upper
 import { HomePageProductComponent } from './home-page-product/home-page-product.component';
 import { HomePageBlogComponent } from './home-page-blog/home-page-blog.component';
 import { HomePageTestimonialComponent } from './home-page-testimonial/home-page-testimonial.component';
+import { HeaderMenuComponent } from './header-menu/header-menu.component';
+import { HomeTopSectionComponent } from './home-top-section/home-top-section.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +28,17 @@ import { HomePageTestimonialComponent } from './home-page-testimonial/home-page-
     HeaderUpperSectionComponent,
     HomePageProductComponent,
     HomePageBlogComponent,
-    HomePageTestimonialComponent
+    HomePageTestimonialComponent,
+    HeaderMenuComponent,
+    HomeTopSectionComponent,
+    ProductListComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

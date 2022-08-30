@@ -3,12 +3,55 @@
         <div class="row">
             <div class="account-details">
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    <form method="post" class="create-account-form" action="#">
+                    <form  class="create-account-form" [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()">
                         <h1 class="heading-title">Create an account</h1>
+                        <div class="form-row">
+                            <label><span class="required">*</span>Gender</label>
+                            <div class="radio-inline">
+                                <label class="top">
+                                    <span class="checked">
+                                        <input type="radio" name="genderType" formControlName="genderType" value="M">
+                                    </span>
+                                    Male
+                                </label>
+                            </div>
+                            <div class="radio-inline">
+                                <label class="top">
+                                    <span class="checked">
+                                        <input type="radio" name="genderType" formControlName="genderType" value="F">
+                                    </span>
+                                   Female
+                                </label>
+                            </div>
+                        </div>
+
+                        <p class="form-row">
+                            <label><span class="required">*</span>Full Name</label>
+                            <input type="text" name="username" formControlName="username" required>
+                        </p>
+
+                        <p class="form-row">
+                            <label><span class="required">*</span>Phone Number</label>
+                            <input type="text" name="regsiterPhone" formControlName="regsiterPhone" required>
+                        </p>
+                        	
                         <p class="form-row">
                             <label>Email address</label>
-                            <input type="email">
-                        </p>	
+                            <input type="email"  name="registerEmail" formControlName="registerEmail" required>
+                        </p>
+
+                        <p class="form-row">
+                            <label>Password</label>
+                            <input type="password"  name="regsiterPassword" formControlName="regsiterPassword" required>
+                        </p>
+
+                        <p class="form-row">
+                            <label>Confirm Password</label>
+                            <input type="password"  name="regsiterConfirmPassword" formControlName="regsiterConfirmPassword" required>
+                        </p>
+
+                        <p class="inn-form-txt1">By Signing up to create an account I accept Tanishq's<br><a href="">Terms &amp; Conditions</a> &amp; <a href="">Privacy Policy</a></p>
+                        
                         <div class="submit">					
                             <button name="submitcreate" id="submitcreate" type="submit" class="">
                                 <span>
@@ -20,14 +63,13 @@
                     </form>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    <form method="post" [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="login-form" action="#">
+                    <form method="post" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form" action="#">
                         <h1 class="heading-title">Already registered?</h1>
                         <p class="form-row">
                             <label>Email address</label>
                             <input id="inputEmail" type="email" formControlName="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email address" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
                             
                         </p>
-                        https://therichpost.com/angular-13-user-login-authentication-tutorial-part-1/
                         <div *ngIf="submitted && f.email.errors" class="invalid-feedback error">
                             <div *ngIf="f.email.errors.required">Email is required</div>
                             <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
@@ -50,9 +92,11 @@
                         <div class="or-seperator"><i>or</i></div>
                         <p class="text-center">Login with your social media account</p>
                         <div class="text-center social-btn">
-                            <a href="#" class="btn btn-secondary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a>
-                            <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a>
+                            <!-- <a href="#" class="btn btn-secondary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a> -->
+                            <button (click)="signInWithFB()" class="btn btn-primary">Login Facebook</button>
+                            <!-- <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a> -->
                             <a href="#" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
+                            <button type="button" (click)="signInWithGoogle()" class="btn btn-primary">Sign In With Google</button>
                         </div>
                         
                     </form>

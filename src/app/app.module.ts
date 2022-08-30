@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { IndexComponent } from './index/index.component';
@@ -17,6 +18,18 @@ import { HomeTopSectionComponent } from './home-top-section/home-top-section.com
 import { ProductListComponent } from './product-list/product-list.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from '@abacritt/angularx-social-login';
+const fbLoginOptions = {
+  scope: 'pages_messaging,pages_messaging_subscriptions,email,pages_show_list,manage_pages',
+  return_scopes: true,
+  enable_profile_selector: true
+}; 
+
 
 @NgModule({
   declarations: [
@@ -38,9 +51,31 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SocialLoginModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('7795198433885827',fbLoginOptions)
+          },
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider("488883956600-5q6303jtt2bm2ieb6cuj2tvrjlu4o0b5.apps.googleusercontent.com")
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

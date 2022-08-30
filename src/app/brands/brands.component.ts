@@ -1,4 +1,6 @@
 import { Component, OnInit , AfterViewInit} from '@angular/core';
+import { Router } from '@angular/router';
+import { JewellaryPortalServiceService } from '../service/jewellary-portal-service.service';
 declare let $: any;
 @Component({
   selector: 'app-brands',
@@ -6,13 +8,28 @@ declare let $: any;
   styleUrls: ['./brands.component.css']
 })
 export class BrandsComponent implements OnInit , AfterViewInit {
-
-  constructor() { }
-
+  error: any;
+  constructor(private router: Router,
+    private jewellaryService: JewellaryPortalServiceService) { }
+ 
+  brandlist:any;
+  owl:any;
   ngOnInit(): void {
+    this.getBrandList();
+  }
+  getBrandList()
+  {
+    this.jewellaryService.getBrandList().subscribe(
+      (data) => {
+        this.brandlist = data.data;
+        console.log(this.brandlist );
+      },
+      error => this.error = error
+    );
+    this.owl.trigger('refresh.owl.carousel');
   }
 ngAfterViewInit(){
-    $(".brand-list").owlCarousel({
+   this.owl =  $(".brand-list").owlCarousel({
       autoPlay: false, 
 	  slideSpeed:2000,
 	  pagination:false,
@@ -25,6 +42,8 @@ ngAfterViewInit(){
 	  itemsTablet: [767,3],
 	  itemsMobile : [479,2],
   });  	
+
+  
     
   }
 }

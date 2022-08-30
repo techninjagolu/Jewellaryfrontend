@@ -5,62 +5,13 @@
              <h2>OUR BRANDS</h2>
           </div>
           <div class="brand-list indicator-style2">
-             <div class="col-md-12">
-                <div class="single-brand">
-                   <a href="#">
-                   <img src="assets/img/brand/1.jpg" alt="">
-                   </a>
-                </div>
-             </div>
-             <div class="col-md-12">
-                <div class="single-brand">
-                   <a href="#">
-                   <img src="assets/img/brand/2.jpg" alt="">
-                   </a>
-                </div>
-             </div>
-             <div class="col-md-12">
-                <div class="single-brand">
-                   <a href="#">
-                   <img src="assets/img/brand/3.jpg" alt="">
-                   </a>
-                </div>
-             </div>
-             <div class="col-md-12">
-                <div class="single-brand">
-                   <a href="#">
-                   <img src="assets/img/brand/4.jpg" alt="">
-                   </a>
-                </div>
-             </div>
-             <div class="col-md-12">
-                <div class="single-brand">
-                   <a href="#">
-                   <img src="assets/img/brand/5.jpg" alt="">
-                   </a>
-                </div>
-             </div>
-             <div class="col-md-12">
-                <div class="single-brand">
-                   <a href="#">
-                   <img src="assets/img/brand/1.jpg" alt="">
-                   </a>
-                </div>
-             </div>
-             <div class="col-md-12">
-                <div class="single-brand">
-                   <a href="#">
-                   <img src="assets/img/brand/2.jpg" alt="">
-                   </a>
-                </div>
-             </div>
-             <div class="col-md-12">
-                <div class="single-brand">
-                   <a href="#">
-                   <img src="assets/img/brand/3.jpg" alt="">
-                   </a>
-                </div>
-             </div>
+            <div class="col-md-12" *ngFor="let brand of brandlist">
+               <div class="single-brand">
+                  <a href="#">
+                  <img src="{{ brand.image }}" alt="">
+                  </a>
+               </div>
+            </div>
           </div>
        </div>
     </div>

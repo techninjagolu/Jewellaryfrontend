@@ -43,6 +43,8 @@ ngAfterViewInit(){
 	  itemsMobile : [479,2],
   });  	
 
+
+  
   
     
   }

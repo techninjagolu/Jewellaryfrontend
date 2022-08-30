@@ -63,7 +63,7 @@ const fbLoginOptions = {
         providers: [
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('7795198433885827',fbLoginOptions)
+            provider: new FacebookLoginProvider('991244761536379',fbLoginOptions)
           },
           {
             id: GoogleLoginProvider.PROVIDER_ID,
